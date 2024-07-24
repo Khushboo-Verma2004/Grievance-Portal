@@ -1,0 +1,68 @@
+.logo {
+    width: 100px;
+    height: 80px;
+    position: absolute;
+    top: 20px; /* Adjust top position as needed */
+    left: 20px; /* Adjust left position as needed */
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(to right, #317aef, #8b8fff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    /* position: relative; Ensure body is relatively positioned for absolute positioning of .logo */
+}
+
+.container {
+    background-color: rgb(236, 228, 255);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    padding: 10px;
+    background-color: #5cb85c;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+p {
+    margin-top: 10px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(17, 0, 71);
+    text-decoration: underline;
+}

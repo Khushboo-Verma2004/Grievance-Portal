@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    background: #317aef;
+    color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    margin-left: 20px;
+    height: 70px;
+    width: 80px;
+}
+
+h1 {
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+    width: 80%;
+}
+
+.dashboard {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    background-color: #317aef;
+    margin-bottom: 20px;
+}
+
+.stat {
+    background: #e7f0fd;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 20%;
+}
+
+.grievances-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+}
+
+th {
+    background: #317aef;
+    color: white;
+}
+
+.register-grievance-button {
+    background: #5cb85c;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.register-grievance-button:hover {
+    background: #4cae4c;
+}
+
+/* Additional styles for the back button */
+.back-button {
+    background: #f0ad4e;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.back-button:hover {
+    background: #ec971f;
+}
+#logoutButton {
+    background: #d9534f;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 20px;
+}

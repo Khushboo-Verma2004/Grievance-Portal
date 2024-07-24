@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Grievance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
+</head>
+<body>
+    <header>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Power_Finance_Corporation_Logo.svg/1200px-Power_Finance_Corporation_Logo.svg.png" alt="PFC" class="logo">
+        <h1>Register Grievance</h1>
+        <div class="profile-options">
+            <span id="profileName">{{ session.get('email') }}</span>
+            <button id="logoutButton" onclick="window.location.href='{{ url_for('signout') }}'">Log Out</button>
+        </div>
+    </header>
+    <main>
+        <div class="grievance">
+            <h2>Register Grievance</h2>
+            <div class="register-grievance">
+                <form id="grievanceForm" action="{{ url_for('register_grievance') }}" method="post" enctype="multipart/form-data">
+                    <label for="grievanceType">Grievance Type:</label>
+                    <select id="grievanceType" name="grievanceType" required>
+                        <option value="complaint">Complaint</option>
+                        <option value="query">Query</option>
+                        <option value="feedback">Feedback</option>
+                    </select>
+                    <label for="department">Department:</label>
+                    <select id="department" name="department" required>
+                        <option value="finance">Finance</option>
+                        <option value="hr">Human Resources</option>
+                        <option value="it">Information Technology</option>
+                        <option value="admin">Administration</option>
+                    </select>
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" rows="4" required></textarea>
+                    <label for="attachment">Attachment:</label>
+                    <input type="file" id="attachment" name="attachment">
+                    <button type="submit">Submit Grievance</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

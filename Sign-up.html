@@ -1,0 +1,36 @@
+<!-- signup.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Add your custom styles here */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="sign-up">
+            <h2>Sign Up</h2>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="flash-message-{{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form id="signUpForm" action="{{ url_for('signup') }}" method="post">
+                <input type="email" id="signUpEmail" name="email" placeholder="Email" required>
+                <input type="password" id="signUpPassword" name="password" placeholder="Password" required> 
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="{{ url_for('signin') }}">Sign In</a></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <header>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Power_Finance_Corporation_Logo.svg/1200px-Power_Finance_Corporation_Logo.svg.png" alt="PFC" class="logo">
+        <h1>Dashboard</h1>
+        <div class="profile-options">
+            <span id="profileName">{{ session.get('email') }}</span>
+            <button id="logoutButton" onclick="window.location.href='{{ url_for('signout') }}'">Log Out</button>
+        </div>
+    </header>
+    <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-message {{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <div class="stats">
+            <p>Pending Grievances: {{ pending_count }}</p>
+            <p>Resolved Grievances: {{ resolved_count }}</p>
+        </div>
+        <div class="grievances-header">
+            <h2>Your Grievances</h2>
+            <a href="{{ url_for('register_grievance') }}" class="register-grievance-button">Register New Grievance</a>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Department</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Attachment</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for grievance in grievances %}
+                <tr>
+                    <td>{{ grievance[1] }}</td>
+                    <td>{{ grievance[2] }}</td>
+                    <td>{{ grievance[3] }}</td>
+                    <td>{{ grievance[7] }}</td> <!-- Status index corrected -->
+                    <td>
+                        {% if grievance[5] %}
+                        <a href="{{ url_for('download_attachment', filename=grievance[5]) }}">Download</a> <!-- Attachment name index corrected -->
+                        {% else %}
+                        No Attachment
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
