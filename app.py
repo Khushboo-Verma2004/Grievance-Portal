@@ -141,13 +141,13 @@ def register_grievance():
 def send_otp(email, otp):
     msg = MIMEText(f'Your OTP is: {otp}')
     msg['Subject'] = 'Your OTP Code'
-    msg['From'] = 'khushboo.verma2004@gmail.com'  # Replace with your email
+    msg['From'] = hidden  # Replace with your email
     msg['To'] = email
 
     try:
         with smtplib.SMTP('smtp.gmail.com', 587) as server:
             server.starttls()
-            server.login('khushboo.verma2004@gmail.com', 'ehdw rnjf xaxz xcev')  # Use app password
+            server.login(hidden)  # Use app password
             server.sendmail(msg['From'], [msg['To']], msg.as_string())
     except Exception as e:
         print(f"Error sending email: {e}")
