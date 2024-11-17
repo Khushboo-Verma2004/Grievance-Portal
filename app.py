@@ -9,15 +9,14 @@ import smtplib  # For sending email
 from email.mime.text import MIMEText
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Replace with a secure secret key
 bcrypt = Bcrypt(app)
 
 # MySQL database configuration
 db = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="fda24d3252",  # Replace with your MySQL password
-    database="signin"    # Replace with your MySQL database name
+    password=hideen, 
+    database="signin"    
 )
 cursor = db.cursor()
 
